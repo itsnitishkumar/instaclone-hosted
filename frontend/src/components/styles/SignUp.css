@@ -1,0 +1,74 @@
+.signUp{
+    background-image: url('https://media.istockphoto.com/id/1330343437/photo/abstract-blurred-gradient-bright-mesh-banner-background-texture-blue-violet-purple-pink-red.jpg?b=1&s=170667a&w=0&k=20&c=yPLMHx8iDmHNYvFmPNwy2OnSsUDoo8W4XdZiDUrlnYI=');
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form{
+    background-color: #ffffff;
+    padding: 30px;
+    border: 1px solid rgb(142, 128, 128);
+    border-radius: 1px; 
+}
+
+.signUpLogo{
+    width: 200px;
+    object-fit: contain;
+    padding: 10px 0px;
+}
+
+.loginPara{
+    color: rgba(var(--f52, 142, 142, 142),1);
+    font-size: 17px;
+    font-weight: 600px;
+    line-height: 20px;
+    margin: 0px 40px 20px 40px;
+}
+
+input{
+    padding: 5px;
+    margin: 3px 0px;
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.loginPara2{
+    font-size: 12px;
+    margin: 3px 0px;
+}
+
+.form > div{
+    width: 80%;
+    margin: auto;
+}
+
+#submit-btn{
+    background-color: #1773EA;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    width: 80%;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.form2{
+    background-color: #fff;
+    padding: 30px;
+    margin-top: 5px;
+    border: 1px solid rgb(129,121,121);
+    border-radius: 1px;
+}
+
+.signInForm2{
+    color: blue;
+    cursor: pointer;
+}
