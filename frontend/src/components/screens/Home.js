@@ -67,7 +67,6 @@ export default function Home() {
         }
       })
       setData(newData)
-      console.log(result);
     })
   }
 
@@ -91,7 +90,6 @@ export default function Home() {
         }
       })
       setData(newData)
-      console.log(result);
     })
   }
 

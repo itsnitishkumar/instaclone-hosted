@@ -96,5 +96,6 @@ export default function PostDetail({item, toggleDetails}) {
           close
         </span>
       </div>
-    </div>)
+    </div>
+    )
 }

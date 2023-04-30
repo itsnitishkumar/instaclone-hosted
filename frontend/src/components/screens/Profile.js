@@ -38,7 +38,6 @@ export default function Profile() {
       }
     }).then(res=> res.json())
     .then((result)=> {
-      console.log(result);
       setPic(result.post)
       setUser(result.user)
     })

@@ -28,7 +28,7 @@ router.post('/signup', (req, res)=>{
                 })
 
                 user.save()
-                .then(user => { res.json({ message: 'saved successfully'}) })
+                .then(user => { res.json({ message: 'Successfully Signed Up'}) })
                 .catch(err => { console.log(err) });
             })
         })
@@ -48,9 +48,8 @@ router.post('/signup', (req, res)=>{
             .then((match)=> {
                 if(match){
                     const token = jwt.sign({_id: savedUser.id}, Jwt_secret)
-                    // res.json(token)
-                    const {_id, name, email, userName} = savedUser
-                    res.status(200).json({message: 'Signed in successfully', token: token, user: {_id, name, email, userName}})
+                    const {_id, name, email, userName, Photo} = savedUser
+                    res.status(200).json({message: 'Signed in successfully', token: token, user: {_id, name, email, userName, Photo}})
                 }    
                 else
                 return res.status(422).json({error: 'Invalid password'})

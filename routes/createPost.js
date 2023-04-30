@@ -7,8 +7,8 @@ const POST = mongoose.model("POST")
 // Routes
 router.get("/allPosts", requireLogin, (req, res)=> {
     POST.find()
-    .populate("postedBy","_id, name")
-    .populate("comments.postedBy", "_id name")
+    .populate("postedBy","_id, name Photo")
+    .populate("comments.postedBy", "_id name Photo")
     .sort("-createdAt")
     .then(posts=> {res.json(posts)})
     .catch(err=>console.log(err))
@@ -34,8 +34,8 @@ router.post("/createPost", requireLogin,(req, res)=>{
 
 router.get("/myposts",requireLogin ,(req, res)=>{
     POST.find({postedBy: req.user._id})
-    .populate("postedBy", "_id name")
-    .populate("comments.postedBy", "_id name")
+    .populate("postedBy", "_id name Photo")
+    .populate("comments.postedBy", "_id name Photo")
     .sort("-createdAt")
     .then(myposts => res.json(myposts))
 })

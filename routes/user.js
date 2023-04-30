@@ -12,8 +12,10 @@ router.get("/user/:id", (req, res)=>{
     .select("-password")
     .then(user => {
         POST.find({postedBy: req.params.id})
-        .populate("postedBy", "_id")
-        .then(post => res.status(200).json({user, post}))
+        .populate("postedBy", "_id name")
+        .populate("comments", "comment postedBy")
+        .then(post => {
+            res.status(200).json({user, post})})
         .catch(err => res.status(422).json({error: err}))
     })
     .catch(err => res.status(422).json({error: "User not found"}))

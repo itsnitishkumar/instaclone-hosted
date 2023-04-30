@@ -25,7 +25,6 @@ export default function UserProfile() {
     })
     .then((res)=>{res.json()})
     .then((data)=>{
-      console.log(data);
       setIsFollow(true)
     })
   }
@@ -44,7 +43,6 @@ export default function UserProfile() {
     })
     .then((res)=> res.json())
     .then((data)=>{
-      console.log(data);
       setIsFollow(false)
     })
   }
@@ -56,7 +54,6 @@ export default function UserProfile() {
       }
     }).then(res=> res.json())
     .then((result)=> {
-        console.log(result);
         setUser(result.user)
         setPosts(result.post)
         if(result.user.followers.includes(JSON.parse(localStorage.getItem("user"))._id)){
@@ -77,18 +74,25 @@ export default function UserProfile() {
         <div className="profile-data">
           <div style={{display:"flex", alignItems:"center", justifyContent:"space-between"}}>
             <h1>{ user.name}</h1>
-            <button className="followBtn" 
-            onClick={
-              ()=> { 
-                if(isFollow){
-                  unfollowUser(user._id)
-                } else {
-                  followUser(user._id)
-                }
-              }}
-            >
-              {isFollow ? "Unfollow" : "Follow"}
-            </button>
+            {/* logic to show follow button to all the user except the logged in user */}
+            {
+              userid == JSON.parse(localStorage.getItem("user"))._id 
+            ? 
+              "" 
+            :
+              <button className="followBtn" 
+              onClick={
+                ()=> { 
+                  if(isFollow){
+                    unfollowUser(user._id)
+                  } else {
+                    followUser(user._id)
+                  }
+                }}
+              >
+                {isFollow ? "Unfollow" : "Follow"}
+              </button>
+            }
           </div>
           <div className="profile-info" style={{display: "flex"}}>
             <p>{posts.length} posts</p>
