@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom';
 export default function MyFollowingPost() {
 
   const navigate = useNavigate()
+  var picLink = "https://cdn-icons-png.flaticon.com/512/3177/3177440.png"
+
 
   const [data, setData] = useState([])
   const [comment, setComment] = useState("")
@@ -132,7 +134,7 @@ export default function MyFollowingPost() {
             {/* card header */}
               <div className="card-header">
                 <div className="card-pic">
-                  <img src="https://plus.unsplash.com/premium_photo-1664302511310-a0fd2e0cfead?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29uJTIwc3F1YXJlfGVufDB8MXwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="" />
+                  <img src={posts.postedBy.Photo ? posts.postedBy.Photo : picLink} alt="" />
                 </div>
                 <Link to={`/profile/${posts.postedBy._id}`}>
                   <h5>{posts.postedBy.name}</h5>
@@ -196,7 +198,7 @@ export default function MyFollowingPost() {
               {/* card header */}
               <div className="card-header" style={{borderBottom: "1px solid #00000029"}}>
                 <div className="card-pic">
-                  <img src="https://plus.unsplash.com/premium_photo-1664302511310-a0fd2e0cfead?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29uJTIwc3F1YXJlfGVufDB8MXwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="" />
+                  <img src={item.postedBy.Photo ? item.postedBy.Photo : picLink} alt="" />
                 </div>
                 <h5>{item.postedBy.name} </h5>
               </div>

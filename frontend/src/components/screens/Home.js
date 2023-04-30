@@ -193,7 +193,7 @@ export default function Home() {
               {/* card header */}
               <div className="card-header" style={{borderBottom: "1px solid #00000029"}}>
                 <div className="card-pic">
-                  <img src="https://plus.unsplash.com/premium_photo-1664302511310-a0fd2e0cfead?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29uJTIwc3F1YXJlfGVufDB8MXwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="" />
+                  <img src={item.postedBy.Photo ? item.postedBy.Photo : picLink} alt="" />
                 </div>
                 <h5>{item.postedBy.name} </h5>
               </div>
@@ -202,7 +202,7 @@ export default function Home() {
               <div className="comment-section" style={{borderBottom: "1px solid #00000029"}}>
                 {item.comments.map((comment)=>{
                   return (
-                  <p className="comm">
+                  <p className="comm"  key={comment._id}>
                     <span className="commenter" style={{fontWeight: "bolder"}}>{comment.postedBy.name}</span>
                     <span className="commentText">{comment.comment}</span>
                   </p>)

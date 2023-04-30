@@ -3,12 +3,13 @@ import '../styles/CreatePost.css'
 import { toast } from 'react-toastify';
 import {useNavigate} from 'react-router-dom';
 
-export default function CreatePost() {
+export default function CreatePost({loggedUser}) {
 
   const [body, setBody] = useState("")
   const [image, setImage] = useState("")
   const [url, setUrl] = useState("")
   const navigate = useNavigate()
+  var picLink = "https://cdn-icons-png.flaticon.com/512/3177/3177440.png"
   
   //Toast functions
   const notifyA = (data)=> toast.error(data)
@@ -91,9 +92,9 @@ export default function CreatePost() {
         <div className="details">
             <div className="card-header">
                 <div className="card-pic">
-                    <img src="https://plus.unsplash.com/premium_photo-1664302511310-a0fd2e0cfead?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29uJTIwc3F1YXJlfGVufDB8MXwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="" />
+                  <img src={loggedUser.Photo ? loggedUser.Photo : picLink} alt="" />
                 </div>
-                <h5>Ramesh</h5>
+                <h5>{JSON.parse(localStorage.getItem("user")).name}</h5>
             </div>
             <textarea type="text" placeholder='Write a caption' value={body} onChange={(e)=>{setBody(e.target.value)}}></textarea>
         </div>

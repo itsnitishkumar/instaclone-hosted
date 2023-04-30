@@ -74,7 +74,7 @@ export default function Profile() {
       </div>
 
       {show &&
-        <PostDetail item={posts} toggleDetails={toggleDetails}/>
+        <PostDetail item={posts} user={user} toggleDetails={toggleDetails}/>
       }
 
       {

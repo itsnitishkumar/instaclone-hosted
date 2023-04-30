@@ -50,7 +50,6 @@ export default function SignUp() {
           notifyB(data.message)
           navigate('/signin');
         }
-        console.log('Success:', data);
       })
       .catch((error) => {
         console.error('Error:', error);
